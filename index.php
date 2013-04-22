@@ -96,13 +96,14 @@ switch($i){
 		break;
 	case newpost:
 
-		echo' 
-		<TEXTAREA NAME="comments" ROWS=11 COLS=50></TEXTAREA>
+		echo'
+		<form name="newPost" action="newPost.php" method="post">		Title:<input type="text" name="title" placeholder="New Post"><br>
+		<TEXTAREA NAME="blogpost" ROWS=11 COLS=50></TEXTAREA>
 
-		<P><INPUT TYPE=SUBMIT VALUE="submit">
+		<br><button class="btn btn-primary" type="submit">Submit</button>
 		
 
-
+		</form>
 		';
 		break;
 	case upload:
@@ -162,7 +163,7 @@ switch($i){
               <div class="control-group">
                 <label class="control-label" for="inputCountry">Country</label>
                 <div class="controls">
-                  <input type="password" name="country" placeholder="'.$country.'"><br><br>
+                  <input type="text" name="country" placeholder="'.$country.'"><br><br>
                 	<button class="btn btn-primary" type="submit">Submit</button>
             </form>
                 </div>
