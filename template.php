@@ -94,15 +94,15 @@ if(isset($_SESSION['is_open'])){
 
 //user not logged in
 else{      echo'<a href="#regModal" role="button" class="btn btn-inverse btn-small" data-toggle="modal" style = "float:right;margin-left:10px">Register</a>';
-		echo'<a href="#signModal" role="button" class="btn btn-inverse btn-small" data-toggle="modal" style = "float:right;margin-left:10px">Sign In</a>';
+		/*echo'<a href="#signModal" role="button" class="btn btn-inverse btn-small" data-toggle="modal" style = "float:right;margin-left:10px">Sign In</a>';*/
 
 
          
-/*	 echo'  <form class="form-inline pull-right" action="login.php" method ="post">
+	 echo'  <form class="form-inline pull-right" action="login.php" method ="post">
             <input type="text" class="input-small" placeholder="Email" name="email" style = "margin-left:20px">
             <input type="password" class="input-small" placeholder="Password" name="pass" style = "margin-left:10px">
             <button type="submit" class="btn btn-inverse btn-small" style = "margin-left:10px">Sign In</button>
-            </form>';   */
+            </form>';   
           }
 
 
@@ -126,12 +126,13 @@ if(isset($_SESSION['is_open'])){
               
               <li><a href="index.php">Home</a></li>
               <li><a href="index.php?func=profile&uID='. $_SESSION['user'] . '">My Profile</a></li>
+              <li><a href="index.php?func=editProfile">Edit Profile</a></li>
               <li><a href="index.php?func=myart">My Artwork</a></li>
               <li><a href="index.php?func=collection">My Collection</a></li>
               <li><a href="index.php?func=favorites">Favorited Artwork</a></li>
               <li><a href="index.php?func=newpost">New Blog Post</a></li>
               <li><a href="index.php?func=upload">Upload Artwork</a></li>
-              <li><a href="index.php?func=trades">Trades</a></li>
+              <li><a href="index.php?func=artists">Artists</a></li>
               <li><a href="index.php?func=genre">Genres</a></li>
             </ul>
           </div><!--/.well -->
@@ -140,7 +141,7 @@ if(isset($_SESSION['is_open'])){
 
 	else{
 echo'
-		<div class = "span6 pull-left well"><h1>Welcome to Arteca</h1></div>
+		<div class = "span3 pull-left well"><h1>Welcome to Arteca</h1></div>
           ';
         }
 echo'        

@@ -15,7 +15,7 @@
 	$pass1 = $_POST['pass1'];
 	$pass2 = $_POST['pass2'];
 
-	if($firstname != NULL || $lastname != NULL || $email != NULL || $pass1 != NULL || $pass2 != NULL){
+	if($firstname != NULL && $lastname != NULL && $email != NULL && $pass1 != NULL && $pass2 != NULL){
 	
 
 	$uID = substr($firstname, 0, 5) . substr($lastname, 0, 5) . substr(md5($email), 0, 10);
