@@ -131,28 +131,12 @@ switch($i){
 	case blogs:
 
 		echo'
-<<<<<<< HEAD
 		<form name="newPost" action="newPost.php" method="post">		Title:<input type="text" name="title" placeholder="New Post" required="required"><br>
-=======
-		<form name="newPost" action="newPost.php" method="post">		Title:<input type="text" name="title" placeholder="New Post"><br>
->>>>>>> 14892b5ae39660ab992173b840ab12fdbe25eca0
 		<TEXTAREA NAME="blogpost" ROWS=11 COLS=50></TEXTAREA>
 
 		<br><button class="btn btn-primary" type="submit">Submit</button>
 		
 
-<<<<<<< HEAD
-=======
-		</form>
-		';
-		break;
-	case upload:
-		echo'<p>
-		<form action="imgUpload.php" method="post" enctype="multipart/form-data">
-			<label for="file">Filename:</label>
-			<input type="file" name="file" id="file"><br>
-			<input type="submit" name="submit" value="Submit">
->>>>>>> 14892b5ae39660ab992173b840ab12fdbe25eca0
 		</form>
 		';
 		break;
@@ -467,7 +451,6 @@ echo'
               <div class="control-group">
                 <label class="control-label" for="inputCountry">Country</label>
                 <div class="controls">
-<<<<<<< HEAD
                   <input type="text" name="country" value="'.$country.'">
                   </div></div>
 
@@ -495,9 +478,6 @@ echo'
                 <div class="controls">
                   <textarea class="input-xlarge" id="statement" rows="10"  name="statement" >'.$statement.'</textarea>
                   <br><br>
-=======
-                  <input type="text" name="country" placeholder="'.$country.'"><br><br>
->>>>>>> 14892b5ae39660ab992173b840ab12fdbe25eca0
                 	<button class="btn btn-primary" type="submit">Submit</button>
             </form>
                 </div>
