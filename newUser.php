@@ -39,6 +39,13 @@
 	$stmt->execute();
 	//echo 'inserted ' . $uID;
 	}
+
+	if($stmt->prepare("insert into userTags (uID) values (?)") or die(mysqli_error($db))){
+			$stmt->bind_param("s", $uID);
+				$stmt->execute();
+	}
+
+
 }
 $db->close();
 header("Location: http://plato.cs.virginia.edu/~zya6yu/index.php", TRUE, 303);

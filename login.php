@@ -5,7 +5,7 @@
 	require "PasswordHash.php";
 	require "session.php";
 	
-	$db = DbUtil::loginConnection();
+	$db = DbUtil::passwordConnection();
 
 	$stmt = $db->stmt_init();
 
@@ -50,6 +50,10 @@
 
 		//run on user priveledges?
 		if($checked == true){
+			$stmt->close();
+			$db->close();
+			$db = DbUtil::loginConnection();
+			$stmt = $db->stmt_init();
 			if($stmt->prepare("select first, last from users where uID= ?") or die(mysqli_error($db)))
 			{
 				$stmt->bind_param("s", $uID);
@@ -66,5 +70,9 @@
 
 	}
 	$db->close();
-	header("Location: http://plato.cs.virginia.edu/~zya6yu/index.php", TRUE, 303);
+	if($checked==true)
+		header("Location: http://plato.cs.virginia.edu/~zya6yu/index.php?func=profile&uID=".$_SESSION['user'], TRUE, 303);
+	else
+		header("Location: http://plato.cs.virginia.edu/~zya6yu/index.php", TRUE, 303);
+
 ?>

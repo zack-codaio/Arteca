@@ -68,8 +68,15 @@ echo'
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>-->
-          <a class="brand" href="index.php">Arteca</a>
+          </button>-->';
+
+          if(isset($_SESSION['is_open'])){
+            echo'<a class="brand" href="index.php?func=profile&uID='. $_SESSION['user'] . '">Arteca</a>';}
+          else
+            echo'<a class="brand" href="index.php">Arteca</a>';
+
+           echo'
+
           <!--<div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
      
@@ -87,8 +94,8 @@ echo'
        //user logged in  
 if(isset($_SESSION['is_open'])){
   echo '<form class="form-inline pull-right" name="logOut" action="logout.php" method="post"><button  type="submit" class="btn btn-inverse btn-small"/>Sign Out</button></form>';
-  echo '
-  <div class="navbar-text pull-right><a href="#" class="navbar-link">Hi ' . $_SESSION['first'] . '</a>! </div>';
+ /* echo '
+  <div class="navbar-text pull-right><a href="#" class="navbar-link">Hi ' . $_SESSION['first'] . '</a>! </div>';*/
 
   }
 
@@ -116,24 +123,27 @@ echo'
     <div class="container-fluid">
       <div class="row-fluid">
         ';
-          
+      //              <li><a href="index.php">Home</a></li>
+    
 if(isset($_SESSION['is_open'])){
+
   echo'
   <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">User Functions</li>
+              <li class="nav-header">Logged in as '. $_SESSION['first'] . ' '.$_SESSION['last'].'</li>
               
-              <li><a href="index.php">Home</a></li>
               <li><a href="index.php?func=profile&uID='. $_SESSION['user'] . '">My Profile</a></li>
               <li><a href="index.php?func=editProfile">Edit Profile</a></li>
               <li><a href="index.php?func=myart">My Artwork</a></li>
-              <li><a href="index.php?func=collection">My Collection</a></li>
               <li><a href="index.php?func=favorites">Favorited Artwork</a></li>
-              <li><a href="index.php?func=newpost">New Blog Post</a></li>
-              <li><a href="index.php?func=upload">Upload Artwork</a></li>
-              <li><a href="index.php?func=artists">Artists</a></li>
+              <li><a href="index.php?func=artists">Following</a></li>
+
+              <li><a href="index.php?func=blogs">Blogs</a></li>
               <li><a href="index.php?func=genre">Genres</a></li>
+              <li><a href="index.php?func=printByState">Print Local Artists</a></li>
+
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->';}
@@ -146,56 +156,16 @@ echo'
         }
 echo'        
         <div class="span9 well">';
-} //end navtemplate
-
-    /**   <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->**/
+}
 function templateend(){
 echo'   </div><!--/span-->
       </div><!--/row-->
 
       <hr>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+      <dib class="navbar navbar-fixed-bottom">
+        <p>&copy; 2013</p>
+      </div>
 
     </div><!--/.fluid-container-->';
 
@@ -256,7 +226,7 @@ echo'
               <div class="control-group">
                 <label class="control-label" for="inputEmail">Email</label>
                 <div class="controls">
-                  <input type="text" name="email" placeholder="john.doe@email.com">
+                  <input type="email" name="email" placeholder="john.doe@email.com">
                 </div>
               </div>
               <div class="control-group">
